@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e NAS પ્રેક્ટિસ - આણંદ જિલ્લો</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Gujarati supported font (Noto Sans Gujarati) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Gujarati', sans-serif;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(236, 72, 153, 0.7); }
+        }
+        .glow-box {
+            animation: pulse-glow 3s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-950 via-purple-900 to-pink-900 min-h-screen text-white flex flex-col justify-between p-4 md:p-6">
+
+    <!-- Header Banner -->
+    <header class="text-center py-6 px-4 bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20 mb-6 max-w-4xl mx-auto w-full">
+        <div class="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-950 font-black px-5 py-1.5 rounded-full text-base md:text-xl shadow-lg mb-4 animate-bounce">
+            ✨ e NAS પ્રેક્ટિસ ✨
+        </div>
+        
+        <!-- મોટું લખાણ: જિલ્લા શિક્ષણ સમિતિ, આણંદ -->
+        <h1 class="text-3xl md:text-5xl font-black text-yellow-300 drop-shadow-lg tracking-wide mb-3 leading-tight">
+            જિલ્લા શિક્ષણ સમિતિ, આણંદ
+        </h1>
+        
+        <!-- મોટું લખાણ: જિલ્લા શિક્ષણ અને તાલીમ ભવન, આણંદ આપનું હાર્દિક સ્વાગત કરે છે! 🎉 -->
+        <h2 class="text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-pink-200 to-white drop-shadow-md leading-relaxed">
+            જિલ્લા શિક્ષણ અને તાલીમ ભવન, આણંદ
+            <span class="block text-xl md:text-3xl text-pink-300 mt-2 font-bold">
+                આપનું હાર્દિક સ્વાગત કરે છે! 🎉
+            </span>
+        </h2>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-2xl mx-auto w-full flex-grow flex items-center justify-center">
+
+        <!-- SCREEN 1: Student Details Form -->
+        <div id="screen-1" class="bg-white/10 backdrop-blur-xl border border-white/30 rounded-3xl p-6 md:p-8 shadow-2xl w-full glow-box">
+            <div class="text-center mb-6">
+                <span class="bg-pink-500/30 border border-pink-400 text-pink-200 text-sm md:text-base font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                    📝 વિદ્યાર્થીની વિગતો ભરો
+                </span>
+                <h3 class="text-xl md:text-2xl font-bold text-white mt-3">કૃપા કરીને નીચેની માહિતી દાખલ કરો</h3>
+            </div>
+
+            <form id="student-form" class="space-y-4 md:space-y-5" onsubmit="startQuiz(event)">
+                <!-- Taluka Dropdown -->
+                <div>
+                    <label class="block text-base font-bold text-pink-200 mb-1">📍 તાલુકાનું નામ પસંદ કરો:</label>
+                    <select id="taluka" required class="w-full px-4 py-3.5 rounded-xl bg-white/20 border border-white/40 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base md:text-lg transition">
+                        <option value="" disabled selected class="bg-gray-900 text-gray-300">-- તાલુકો પસંદ કરો --</option>
+                        <option value="આણંદ" class="bg-gray-900 text-white">આણંદ</option>
+                        <option value="બોરસદ" class="bg-gray-900 text-white">બોરસદ</option>
+                        <option value="પેટલાદ" class="bg-gray-900 text-white">પેટલાદ</option>
+                        <option value="ખંભાત" class="bg-gray-900 text-white">ખંભાત</option>
+                        <option value="ઉમરેઠ" class="bg-gray-900 text-white">ઉમરેઠ</option>
+                        <option value="આંકલાવ" class="bg-gray-900 text-white">આંકલાવ</option>
+                        <option value="સોજિત્રા" class="bg-gray-900 text-white">સોજિત્રા</option>
+                        <option value="તારાપુર" class="bg-gray-900 text-white">તારાપુર</option>
+                    </select>
+                </div>
+
+                <!-- School Name -->
+                <div>
+                    <label class="block text-base font-bold text-pink-200 mb-1">🏫 શાળાનું નામ:</label>
+                    <input type="text" id="school-name" placeholder="તમારી શાળાનું નામ લખો" required class="w-full px-4 py-3.5 rounded-xl bg-white/20 border border-white/40 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base md:text-lg transition">
+                </div>
+
+                <!-- Student Name -->
+                <div>
+                    <label class="block text-base font-bold text-pink-200 mb-1">👦/👧 વિદ્યાર્થીનું નામ:</label>
+                    <input type="text" id="student-name" placeholder="તમારું પૂરું નામ લખો" required class="w-full px-4 py-3.5 rounded-xl bg-white/20 border border-white/40 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base md:text-lg transition">
+                </div>
+
+                <!-- Roll Number -->
+                <div>
+                    <label class="block text-base font-bold text-pink-200 mb-1">🔢 વિદ્યાર્થીનો રોલ નંબર:</label>
+                    <input type="number" id="roll-no" placeholder="રોલ નંબર લખો" required class="w-full px-4 py-3.5 rounded-xl bg-white/20 border border-white/40 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base md:text-lg transition">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full mt-6 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 hover:from-yellow-300 hover:to-purple-500 text-gray-950 font-black py-4 px-6 rounded-2xl shadow-xl transform hover:-translate-y-0.5 transition duration-200 text-xl flex items-center justify-center gap-2">
+                    <span>e NAS પ્રેક્ટિસ શરૂ કરો</span> 🚀
+                </button>
+            </form>
+        </div>
+
+        <!-- SCREEN 2: Quiz Screen -->
+        <div id="screen-2" class="hidden bg-white/10 backdrop-blur-xl border border-white/30 rounded-3xl p-6 md:p-8 shadow-2xl w-full">
+            <div class="flex justify-between items-center mb-4 bg-black/20 px-4 py-2 rounded-xl border border-white/10 text-xs md:text-sm">
+                <span id="display-student" class="text-yellow-300 font-semibold"></span>
+                <span class="bg-cyan-500/20 text-cyan-200 px-3 py-1 rounded-full font-bold">પ્રશ્ન <span id="current-q-num">1</span>/10</span>
+            </div>
+
+            <!-- Timer / Progress Bar -->
+            <div class="w-full bg-white/20 h-2.5 rounded-full mb-6 overflow-hidden">
+                <div id="timer-bar" class="bg-gradient-to-r from-yellow-400 to-pink-500 h-full w-full transition-all duration-1000"></div>
+            </div>
+
+            <!-- Question Card -->
+            <div id="question-container" class="mb-6">
+                <h3 id="question-text" class="text-lg md:text-xl font-bold text-white mb-4 leading-relaxed"></h3>
+                <div id="options-container" class="space-y-3">
+                    <!-- Options loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: Result Screen -->
+        <div id="screen-3" class="hidden bg-white/10 backdrop-blur-xl border border-white/30 rounded-3xl p-6 md:p-8 shadow-2xl w-full">
+            <div class="text-center mb-6">
+                <div class="text-5xl mb-2">🏆</div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-yellow-300">ક્વિઝ પૂર્ણ થઈ ગઈ છે!</h2>
+                <p id="score-summary" class="text-lg font-medium text-pink-200 mt-2"></p>
+                <p id="save-status" class="text-sm font-semibold text-cyan-300 mt-2"></p>
+            </div>
+
+            <!-- Result Details & Explanations -->
+            <div class="space-y-4 max-h-96 overflow-y-auto pr-2" id="result-details-container">
+                <!-- Detailed review populated via JS -->
+            </div>
+
+            <button onclick="restartQuiz()" class="w-full mt-6 bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg hover:opacity-90 transition text-lg">
+                🔄 ફરીથી પ્રયત્ન કરો
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Script Logic -->
+    <script>
+        // તમારી સાચી Google Web App URL લિંક ઉમેરેલી છે
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxLrIhtiH9Y2A1hNgM-0ySXwlsWm-4VEmt3tNczV_PIrAiT2JP_GNMYXaqjv-hD82vq/exec";
+
+        const questions = [
+            {
+                q: "પ્રશ્ન ૧: જો એક ત્રિકોણના ત્રણ ખૂણાઓનું માપ અનુક્રમે 50°, 60° અને 70° હોય, તો આ ત્રિકોણ કેવા પ્રકારનો ત્રિકોણ છે?",
+                options: ["લઘુકોણ ત્રિકોણ (Acute-angled)", "કાટકોણ ત્રિકોણ (Right-angled)", "ગુરૂકોણ ત્રિકોણ (Obtuse-angled)", "સમદ્વિબાજુ ત્રિકોણ (Isosceles)"],
+                correct: 0,
+                explanation: "સમજૂતી: ત્રિકોણના ત્રણેય ખૂણાના માપ 90° કરતા ઓછા છે, તેથી તે લઘુકોણ ત્રિકોણ છે."
+            },
+            {
+                q: "પ્રશ્ન ૨: સંખ્યા -15 ની વિરુદ્ધ સંખ્યા કઈ છે?",
+                options: ["-15", "0", "15", "1/15"],
+                correct: 2,
+                explanation: "સમજૂતી: કોઈપણ પૂર્ણાંક સંખ્યાની વિરુદ્ધ સંખ્યા તેની વિરુદ્ધ ચિહ્નવાળી સંખ્યા હોય છે. -15 ની વિરુદ્ધ +15 થાય."
+            },
+            {
+                q: "પ્રશ્ન ૩: સમીકરણ 3x - 5 = 10 માં x ની કિંમત કેટલી થાય?",
+                options: ["3", "5", "10", "15"],
+                correct: 1,
+                explanation: "સમજૂતી: 3x - 5 = 10 => 3x = 10 + 5 => 3x = 15 => x = 15 ÷ 3 = 5."
+            },
+            {
+                q: "પ્રશ્ન ૪: 5 મીટર અને 50 સેન્ટીમીટરનો ગુણોત્તર સેન્ટીમીટરમાં કેટલો થાય?",
+                options: ["1 : 10", "10 : 1", "5 : 50", "50 : 5"],
+                correct: 1,
+                explanation: "સમજૂતી: 1 મીટર = 100 સેમી, તેથી 5 મીટર = 500 સેમી. ગુણોત્તર = 500 : 50 = 10 : 1."
+            },
+            {
+                q: "પ્રશ્ન ૫: જો એક ચોરસની પરિમિતિ 40 સેમી હોય, તો તેનું ક્ષેત્રફળ કેટલું થાય?",
+                options: ["40 ચોરસ સેમી", "100 ચોરસ સેમી", "160 ચોરસ સેમી", "10 ચોરસ સેમી"],
+                correct: 1,
+                explanation: "સમજૂતી: પરિમિતિ = 4 × લંબાઈ (40 = 4 × લંબાઈ => લંબાઈ = 10 સેમી). ક્ષેત્રફળ = 10 × 10 = 100 ચોરસ સેમી."
+            },
+            {
+                q: "પ્રશ્ન ૬: નીચેનામાંથી સૌથી નાની અવિભાજ્ય સંખ્યા કઈ છે?",
+                options: ["0", "1", "2", "3"],
+                correct: 2,
+                explanation: "સમજૂતી: 2 એ સૌથી નાની અને એકમાત્ર બેકી અવિભાજ્ય સંખ્યા છે."
+            },
+            {
+                q: "પ્રશ્ન ૭: પૂર્ણાંક સંખ્યાઓ -7 અને -3 માંથી મોટી સંખ્યા કઈ છે?",
+                options: ["-7", "-3", "બંને સરખી છે", "કઈ નહીં"],
+                correct: 1,
+                explanation: "સમજૂતી: ઋણ સંખ્યાઓમાં જે સંખ્યા શૂન્યની નજીક હોય તે મોટી ગણાય, તેથી -3 મોટા છે."
+            },
+            {
+                q: "પ્રશ્ન ૮: અપૂર્ણાંક 3/4 ની સમાન (તુલ્ય) અપૂર્ણાંક સંખ્યા કઈ છે?",
+                options: ["6/8", "4/3", "3/8", "6/4"],
+                correct: 0,
+                explanation: "સમજૂતી: 3/4 ના અંશ અને છેદ બંનેને 2 વડે ગુણતા 6/8 મળે છે."
+            },
+            {
+                q: "પ્રશ્ન ૯: એક ડઝન પેનની કિંમત ₹ 120 હોય, તો 1 પેનની કિંમત કેટલી થાય?",
+                options: ["₹ 5", "₹ 10", "₹ 12", "₹ 15"],
+                correct: 1,
+                explanation: "સમજૂતી: 1 ડઝન એટલે 12 પેન. 120 ÷ 12 = ₹ 10 પ્રતિ પેન."
+            },
+            {
+                q: "પ્રશ્ન ૧૦: 90° ના માપના ખૂણાને શું કહે છે?",
+                options: ["લઘુકોણ", "ગુરૂકોણ", "કાટકોણ", "સરળકોણ"],
+                correct: 2,
+                explanation: "સમજૂતી: બરાબર 90° ના માપના ખૂણાને કાટકોણ (Right angle) કહે છે."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let studentData = {};
+
+        function startQuiz(event) {
+            event.preventDefault();
+            studentData = {
+                taluka: document.getElementById('taluka').value,
+                school: document.getElementById('school-name').value,
+                name: document.getElementById('student-name').value,
+                roll: document.getElementById('roll-no').value
+            };
+
+            document.getElementById('display-student').innerText = `વિદ્યાર્થી: ${studentData.name} (રોલ નં: ${studentData.roll})`;
+            
+            document.getElementById('screen-1').classList.add('hidden');
+            document.getElementById('screen-2').classList.remove('hidden');
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                const qData = questions[currentQuestionIndex];
+                document.getElementById('current-q-num').innerText = currentQuestionIndex + 1;
+                document.getElementById('question-text').innerText = qData.q;
+
+                const optionsContainer = document.getElementById('options-container');
+                optionsContainer.innerHTML = '';
+
+                qData.options.forEach((opt, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = `w-full text-left p-4 rounded-xl bg-white/10 hover:bg-white/25 border border-white/30 text-white font-medium transition duration-200 flex items-center gap-3 text-base md:text-lg`;
+                    btn.innerHTML = `<span class="bg-white/20 text-yellow-300 w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm shrink-0">${String.fromCharCode(65 + index)}</span> <span>${opt}</span>`;
+                    
+                    btn.onclick = () => selectOption(index);
+                    optionsContainer.appendChild(btn);
+                });
+            } else {
+                showResults();
+            }
+        }
+
+        function selectOption(selectedIndex) {
+            userAnswers[currentQuestionIndex] = selectedIndex;
+            
+            const buttons = document.getElementById('options-container').querySelectorAll('button');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                if (idx === selectedIndex) {
+                    btn.classList.remove('bg-white/10', 'hover:bg-white/25');
+                    btn.classList.add('bg-pink-600/60', 'border-yellow-400', 'shadow-md');
+                }
+            });
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadQuestion();
+                } else {
+                    showCheckResultPrompt();
+                }
+            }, 600);
+        }
+
+        function showCheckResultPrompt() {
+            document.getElementById('screen-2').classList.add('hidden');
+            document.getElementById('screen-3').classList.remove('hidden');
+
+            let score = 0;
+            let questionMarks = [];
+
+            questions.forEach((q, idx) => {
+                const isCorrect = userAnswers[idx] === q.correct;
+                const mark = isCorrect ? 1 : 0;
+                score += mark;
+                questionMarks.push(mark);
+            });
+
+            document.getElementById('score-summary').innerHTML = `તમારો કુલ સ્કોર: <span class="text-yellow-300 font-extrabold text-2xl">${score} / 10</span>`;
+
+            // ગૂગલ શીટ પર પરિણામ મોકલો
+            sendResultToGoogleSheet(score, questionMarks);
+
+            const detailsContainer = document.getElementById('result-details-container');
+            detailsContainer.innerHTML = '';
+
+            questions.forEach((q, idx) => {
+                const userAnsIdx = userAnswers[idx];
+                const isCorrect = userAnsIdx === q.correct;
+                const markObtained = isCorrect ? 1 : 0;
+                
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-2xl border ${isCorrect ? 'bg-green-900/30 border-green-500/50' : 'bg-red-900/30 border-red-500/50'}`;
+                
+                card.innerHTML = `
+                    <p class="font-bold text-white text-base mb-2">${q.q}</p>
+                    <p class="text-sm text-cyan-200 mb-1">તમારો જવાબ: <span class="font-semibold ${isCorrect ? 'text-green-300' : 'text-red-300'}">${userAnsIdx !== undefined ? q.options[userAnsIdx] : 'જવાબ આપેલ નથી'}</span> (ગુણ: <span class="font-bold">${markObtained}/1</span>)</p>
+                    <p class="text-sm text-yellow-200 mb-2">સાચો જવાબ: <span class="font-semibold">${q.options[q.correct]}</span></p>
+                    ${!isCorrect ? `<div class="mt-2 text-sm bg-black/30 p-3 rounded-lg border border-red-400/30 text-pink-200 leading-relaxed">💡 <strong>સમજૂતી:</strong> ${q.explanation}</div>` : ''}
+                `;
+                detailsContainer.appendChild(card);
+            });
+        }
+
+        function sendResultToGoogleSheet(score, questionMarks) {
+            document.getElementById('save-status').innerText = "⏳ પરિણામ શીટમાં સેવ થઈ રહ્યું છે...";
+
+            const data = {
+                taluka: studentData.taluka,
+                school: studentData.school,
+                name: studentData.name,
+                roll: studentData.roll,
+                score: score,
+                questionMarks: questionMarks
+            };
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(() => {
+                document.getElementById('save-status').innerText = "✅ તમારું પરિણામ પ્રશ્નવાર ગુણ સાથે ગૂગલ શીટમાં સેવ થઈ ગયું છે!";
+            }).catch(err => {
+                document.getElementById('save-status').innerText = "❌ પરિણામ સેવ કરવામાં સમસ્યા આવી છે.";
+            });
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            document.getElementById('screen-3').classList.add('hidden');
+            document.getElementById('screen-1').classList.remove('hidden');
+            document.getElementById('student-form').reset();
+            document.getElementById('save-status').innerText = "";
+        }
+    </script>
+</body>
+</html>
